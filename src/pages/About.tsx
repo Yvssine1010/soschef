@@ -1,6 +1,7 @@
 import Navigation from '@/components/Navigation';
 import FlipGallery from '@/components/ui/flip-gallery';
-import { Target, Eye, Award } from 'lucide-react';
+import { Target, Eye, Award, Phone } from 'lucide-react';
+import ownerImage from '@/assets/owner.png';
 import chefPlatingImg from '@/assets/chef-plating.jpg';
 import chefFlameImg from '@/assets/chef-flame.jpg';
 import platingCloseupImg from '@/assets/plating-closeup.jpg';
@@ -78,6 +79,37 @@ const About = () => {
             <FlipGallery images={galleryImages} />
           </div>
         </div>
+
+        <section className="mb-20">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Notre Fondateur</h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-card border rounded-2xl p-8 md:p-12">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="flex justify-center">
+                  <img 
+                    src={ownerImage} 
+                    alt="Fondateur d'Orienta Pro" 
+                    className="rounded-2xl w-full max-w-sm shadow-lg"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">Expert en Hôtellerie & Immigration</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    Avec plus de 20 ans d'expérience dans l'industrie hôtelière internationale et l'accompagnement 
+                    de professionnels dans leur parcours migratoire, notre fondateur met son expertise au service 
+                    de votre réussite professionnelle.
+                  </p>
+                  <div className="flex items-center gap-3 p-4 bg-primary/10 rounded-lg">
+                    <Phone className="w-5 h-5 text-primary" />
+                    <a href="tel:+212625819387" className="text-lg font-semibold hover:text-primary transition">
+                      +212 625-819387
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className="bg-muted/50 rounded-2xl p-12 mb-16">
           <h2 className="text-3xl font-bold mb-8 text-center">Notre Expertise</h2>

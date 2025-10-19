@@ -163,8 +163,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-medium mb-1">Téléphone</p>
-                    <a href="tel:+33123456789" className="text-sm text-muted-foreground hover:text-primary">
-                      +33 1 23 45 67 89
+                    <a href="tel:+212625819387" className="text-sm text-muted-foreground hover:text-primary">
+                      +212 625-819387
                     </a>
                   </div>
                 </div>
