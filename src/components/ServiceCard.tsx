@@ -12,7 +12,7 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ title, description, icon: Icon, features, link }: ServiceCardProps) => {
   return (
-    <div className="service-card p-8">
+    <div className="service-card group p-8">
       <div className="flex items-start gap-4 mb-6">
         <div className="p-3 rounded-xl bg-primary/10">
           <Icon className="w-8 h-8 text-primary" />

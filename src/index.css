@@ -134,7 +134,7 @@ All colors MUST be HSL.
   }
 
   .service-card {
-    @apply relative group overflow-hidden rounded-xl border bg-card transition-all duration-300 hover:shadow-[var(--shadow-elegant)];
+    @apply relative overflow-hidden rounded-xl border bg-card transition-all duration-300 hover:shadow-[var(--shadow-elegant)];
   }
 
   .luxury-gradient {
