@@ -3,6 +3,9 @@ import { DotScreenShader } from '@/components/ui/dot-shader-background';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle2, Shield, TrendingUp, Users } from 'lucide-react';
 import Navigation from '@/components/Navigation';
+import chefWorking1 from '@/assets/chef-working-1.jpg';
+import chefWorking2 from '@/assets/chef-working-2.jpg';
+import chefWorking3 from '@/assets/chef-working-3.jpg';
 
 const Home = () => {
   return (
@@ -82,6 +85,62 @@ const Home = () => {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Excellence Gallery */}
+      <section className="py-24 px-4 bg-background">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
+            L'Excellence Culinaire en Action
+          </h2>
+          <p className="text-xl text-muted-foreground text-center mb-16 max-w-3xl mx-auto">
+            Découvrez le savoir-faire et la passion qui animent les professionnels que nous formons et accompagnons
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="group relative overflow-hidden rounded-2xl aspect-[3/4] shadow-lg hover:shadow-[var(--shadow-elegant)] transition-all duration-500">
+              <img 
+                src={chefWorking1} 
+                alt="Chef en plein travail de précision" 
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <h3 className="text-xl font-bold mb-2">Précision & Technique</h3>
+                  <p className="text-sm text-white/90">L'art du dressage au plus haut niveau</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-2xl aspect-[3/4] shadow-lg hover:shadow-[var(--shadow-elegant)] transition-all duration-500">
+              <img 
+                src={chefWorking2} 
+                alt="Chef professionnel au travail" 
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <h3 className="text-xl font-bold mb-2">Maîtrise Professionnelle</h3>
+                  <p className="text-sm text-white/90">Excellence et rigueur culinaire</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-2xl aspect-[3/4] shadow-lg hover:shadow-[var(--shadow-elegant)] transition-all duration-500">
+              <img 
+                src={chefWorking3} 
+                alt="Art du dressage gastronomique" 
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <h3 className="text-xl font-bold mb-2">Créativité Culinaire</h3>
+                  <p className="text-sm text-white/90">Innovation et présentation raffinée</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
