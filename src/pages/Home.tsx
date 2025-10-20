@@ -1,77 +1,64 @@
 import { Link } from 'react-router-dom';
-import { DotScreenShader } from '@/components/ui/dot-shader-background';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle2, Shield, TrendingUp, Users } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Award, Users, Globe } from 'lucide-react';
 import Navigation from '@/components/Navigation';
+import HeroSlider from '@/components/HeroSlider';
 import chefWorking1 from '@/assets/chef-working-1.jpg';
 import chefWorking2 from '@/assets/chef-working-2.jpg';
 import chefWorking3 from '@/assets/chef-working-3.jpg';
 
 const Home = () => {
+  const heroSlides = [
+    {
+      image: chefWorking1,
+      title: 'SOS CHEF',
+      subtitle: 'Institution Marocaine Accréditée',
+      description: 'Formation d\'excellence en hôtellerie-restauration depuis 2015'
+    },
+    {
+      image: chefWorking2,
+      title: 'Excellence Culinaire',
+      subtitle: 'Diplômes Reconnus',
+      description: 'Programmes de formation professionnelle de haut niveau'
+    },
+    {
+      image: chefWorking3,
+      title: 'Votre Avenir',
+      subtitle: 'Commence Ici',
+      description: 'Opportunités de carrière au Maroc et à l\'international'
+    }
+  ];
+
   return (
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <DotScreenShader />
-        </div>
-        
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white mix-blend-exclusion">
-            Votre Avenir Professionnel <br />
-            <span className="text-secondary">Commence Ici</span>
-          </h1>
-          <p className="text-xl md:text-2xl mb-12 text-white/90 mix-blend-exclusion max-w-3xl mx-auto leading-relaxed">
-            Conseil, Orientation, Formation & Recrutement
-            <br />
-            <span className="text-lg">Expertise Hôtellerie • Restauration • Immigration</span>
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/services">
-              <Button size="lg" className="luxury-gradient text-primary-foreground font-semibold px-8 py-6 text-lg">
-                Découvrir nos services
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 px-8 py-6 text-lg">
-                Nous contacter
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Hero Slider */}
+      <HeroSlider slides={heroSlides} />
 
       {/* Why Choose Us Section */}
       <section className="py-24 px-4 bg-background">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            Pourquoi Nous Choisir ?
+            Pourquoi Choisir SOS CHEF ?
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                icon: Shield,
-                title: 'Confidentialité',
-                description: 'Protection totale de vos données personnelles et professionnelles'
+                icon: Award,
+                title: 'Accréditation Officielle',
+                description: 'Institution accréditée par l\'État Marocain depuis 2015'
               },
               {
                 icon: CheckCircle2,
-                title: 'Expertise',
-                description: 'Des professionnels qualifiés dans les secteurs hôtelier et immigration'
+                title: 'Excellence Académique',
+                description: 'Corps professoral passionné et hautement qualifié'
               },
               {
-                icon: TrendingUp,
-                title: 'Résultats',
-                description: 'Un accompagnement personnalisé jusqu\'à l\'atteinte de vos objectifs'
-              },
-              {
-                icon: Users,
-                title: 'Support',
-                description: 'Une équipe dédiée disponible tout au long de votre parcours'
+                icon: Globe,
+                title: 'Reconnaissance Internationale',
+                description: 'Diplômes reconnus au Maroc et à l\'international'
               }
             ].map((item, index) => {
               const Icon = item.icon;
@@ -89,75 +76,77 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Excellence Gallery */}
-      <section className="py-24 px-4 bg-background">
+      {/* About Section */}
+      <section className="py-24 px-4 bg-muted/30">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
-            L'Excellence Culinaire en Action
-          </h2>
-          <p className="text-xl text-muted-foreground text-center mb-16 max-w-3xl mx-auto">
-            Découvrez le savoir-faire et la passion qui animent les professionnels que nous formons et accompagnons
-          </p>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Notre Mission
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              SOS CHEF, fondée en 2015 par Mr Hassan Abandarat, est une institution marocaine dédiée à la formation d'excellence en hôtellerie-restauration. Nous combinons méthodes théoriques, pratiques et pédagogiques innovantes pour former les chefs de demain.
+            </p>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="group relative overflow-hidden rounded-2xl aspect-[3/4] shadow-lg hover:shadow-[var(--shadow-elegant)] transition-all duration-500">
-              <img 
-                src={chefWorking1} 
-                alt="Chef en plein travail de précision" 
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 className="text-xl font-bold mb-2">Précision & Technique</h3>
-                  <p className="text-sm text-white/90">L'art du dressage au plus haut niveau</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 className="text-3xl font-bold mb-6">Calendrier Académique 2024-2025</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-4 p-4 bg-card border rounded-xl">
+                  <div className="w-12 h-12 rounded-full luxury-gradient flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold">1</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold mb-1">Inscriptions</h4>
+                    <p className="text-sm text-muted-foreground">Début septembre</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 p-4 bg-card border rounded-xl">
+                  <div className="w-12 h-12 rounded-full luxury-gradient flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold">2</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold mb-1">Cours</h4>
+                    <p className="text-sm text-muted-foreground">Début octobre à fin juillet</p>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <div className="group relative overflow-hidden rounded-2xl aspect-[3/4] shadow-lg hover:shadow-[var(--shadow-elegant)] transition-all duration-500">
-              <img 
-                src={chefWorking2} 
-                alt="Chef professionnel au travail" 
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 className="text-xl font-bold mb-2">Maîtrise Professionnelle</h3>
-                  <p className="text-sm text-white/90">Excellence et rigueur culinaire</p>
-                </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-card border rounded-xl p-6 text-center">
+                <div className="text-4xl font-bold text-primary mb-2">2015</div>
+                <div className="text-sm text-muted-foreground">Année de fondation</div>
               </div>
-            </div>
-
-            <div className="group relative overflow-hidden rounded-2xl aspect-[3/4] shadow-lg hover:shadow-[var(--shadow-elegant)] transition-all duration-500">
-              <img 
-                src={chefWorking3} 
-                alt="Art du dressage gastronomique" 
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 className="text-xl font-bold mb-2">Créativité Culinaire</h3>
-                  <p className="text-sm text-white/90">Innovation et présentation raffinée</p>
-                </div>
+              <div className="bg-card border rounded-xl p-6 text-center">
+                <div className="text-4xl font-bold text-primary mb-2">10+</div>
+                <div className="text-sm text-muted-foreground">Années d'expérience</div>
+              </div>
+              <div className="bg-card border rounded-xl p-6 text-center">
+                <div className="text-4xl font-bold text-primary mb-2">100%</div>
+                <div className="text-sm text-muted-foreground">Accrédité</div>
+              </div>
+              <div className="bg-card border rounded-xl p-6 text-center">
+                <div className="text-4xl font-bold text-primary mb-2">∞</div>
+                <div className="text-sm text-muted-foreground">Opportunités</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Preview */}
-      <section className="py-24 px-4 bg-muted/30">
+      {/* Formations Preview */}
+      <section className="py-24 px-4 bg-background">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Nos Services d'Excellence
+            Nos Formations
           </h2>
           <p className="text-xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-            Des solutions complètes pour votre développement professionnel dans l'hôtellerie et l'immigration
+            Programmes de formation professionnelle en arts culinaires et services traiteurs
           </p>
           
-          <Link to="/services">
+          <Link to="/formations">
             <Button size="lg" className="luxury-gradient text-primary-foreground font-semibold px-8">
-              Voir tous nos services
+              Découvrir nos formations
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </Link>
@@ -168,18 +157,25 @@ const Home = () => {
       <section className="py-24 px-4 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Prêt à Transformer Votre Carrière ?
+            Rejoignez SOS CHEF
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Contactez-nous dès aujourd'hui pour une consultation personnalisée
+            Inscrivez-vous maintenant et commencez votre parcours vers l'excellence culinaire
           </p>
-          <Link to="/contact">
-            <Button size="lg" variant="secondary" className="px-8 py-6 text-lg font-semibold">
-              Demander une consultation
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/contact">
+              <Button size="lg" variant="secondary" className="px-8 py-6 text-lg font-semibold">
+                S'inscrire maintenant
+              </Button>
+            </Link>
+            <a href="tel:+212520724513">
+              <Button size="lg" variant="outline" className="bg-white/10 border-white text-white hover:bg-white/20 px-8 py-6 text-lg">
+                Nous appeler
+              </Button>
+            </a>
+          </div>
           <p className="mt-6 text-sm opacity-75">
-            Tous nos services sont payants et font l'objet d'un devis personnalisé
+            📍 23 Boulevard Sidi Abderrahmane, Casablanca, Maroc
           </p>
         </div>
       </section>

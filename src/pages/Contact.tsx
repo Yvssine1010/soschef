@@ -40,10 +40,10 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-4 py-16">
         <header className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Contactez-Nous
+            Contactez SOS CHEF
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Notre équipe d'experts est à votre écoute pour répondre à vos questions et vous accompagner dans vos projets
+            Notre équipe est à votre écoute pour vous accompagner dans votre parcours de formation
           </p>
         </header>
 
@@ -162,10 +162,18 @@ const Contact = () => {
                     <Phone className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <div>
-                    <p className="font-medium mb-1">Téléphone</p>
-                    <a href="tel:+212625819387" className="text-sm text-muted-foreground hover:text-primary">
-                      +212 625-819387
-                    </a>
+                    <p className="font-medium mb-1">Téléphones</p>
+                    <div className="space-y-1">
+                      <a href="tel:+212520724513" className="block text-sm text-muted-foreground hover:text-primary">
+                        📞 0520 724 513
+                      </a>
+                      <a href="tel:+212625819387" className="block text-sm text-muted-foreground hover:text-primary">
+                        📱 0625 819 387
+                      </a>
+                      <a href="tel:+212664003163" className="block text-sm text-muted-foreground hover:text-primary">
+                        📱 0664 003 163
+                      </a>
+                    </div>
                   </div>
                 </div>
 
@@ -176,8 +184,8 @@ const Contact = () => {
                   <div>
                     <p className="font-medium mb-1">Adresse</p>
                     <p className="text-sm text-muted-foreground">
-                      123 Avenue des Champs-Élysées<br />
-                      75008 Paris, France
+                      23 Boulevard Sidi Abderrahmane<br />
+                      Casablanca, Maroc
                     </p>
                   </div>
                 </div>
