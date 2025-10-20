@@ -3,6 +3,8 @@ import { Award, Globe, CheckCircle, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import logo from '@/assets/sos-chef-logo.jpg';
+import immigrationOpportunities from '@/assets/immigration-opportunities.jpg';
+import canadaFlag from '@/assets/canada-flag.jpg';
 
 const Diplomes = () => {
   const diplomas = [
@@ -150,11 +152,23 @@ const Diplomes = () => {
                 <p className="text-lg opacity-90 mb-6">
                   Nos partenariats avec des établissements prestigieux vous offrent des opportunités au Maroc et à l'international
                 </p>
-                <div className="flex flex-wrap gap-4 justify-center">
+                <div className="flex flex-wrap gap-4 justify-center mb-8">
                   <span className="px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">Maroc</span>
                   <span className="px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">Europe</span>
                   <span className="px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">Canada</span>
                   <span className="px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">Moyen-Orient</span>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                  <img 
+                    src={immigrationOpportunities} 
+                    alt="Opportunités d'immigration et de travail" 
+                    className="rounded-lg w-full h-64 object-cover shadow-lg"
+                  />
+                  <img 
+                    src={canadaFlag} 
+                    alt="Canada - Opportunités à l'étranger" 
+                    className="rounded-lg w-full h-64 object-cover shadow-lg"
+                  />
                 </div>
               </div>
             </div>
