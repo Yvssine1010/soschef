@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 import heroFood from '@/assets/hero-gourmet-food.jpg';
 import heroCanada from '@/assets/hero-canada-immigration.jpg';
 import heroTeaching from '@/assets/hero-teaching-cooking.jpg';
@@ -10,26 +11,27 @@ interface Slide {
   subtitle: string;
 }
 
-const slides: Slide[] = [
-  {
-    image: heroFood,
-    title: "Excellence Culinaire",
-    subtitle: "Formation d'Élite en Arts Gastronomiques"
-  },
-  {
-    image: heroCanada,
-    title: "Opportunités Internationales",
-    subtitle: "Votre Carrière au Canada"
-  },
-  {
-    image: heroTeaching,
-    title: "Enseignement de Qualité",
-    subtitle: "Apprenez des Meilleurs Chefs"
-  }
-];
-
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const { t } = useLanguage();
+
+  const slides: Slide[] = [
+    {
+      image: heroFood,
+      title: t('hero.excellence'),
+      subtitle: t('hero.subtitle')
+    },
+    {
+      image: heroCanada,
+      title: t('hero.international'),
+      subtitle: t('hero.internationalSubtitle')
+    },
+    {
+      image: heroTeaching,
+      title: t('hero.teaching'),
+      subtitle: t('hero.teachingSubtitle')
+    }
+  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -57,29 +59,41 @@ const HeroSlider = () => {
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? 'opacity-100' : 'opacity-0'
+          className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+            index === currentSlide 
+              ? 'opacity-100 scale-100' 
+              : 'opacity-0 scale-105'
           }`}
         >
           <img
             src={slide.image}
             alt={slide.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-1000 hover:scale-110"
           />
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-black/30" />
         </div>
       ))}
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center justify-center">
         <div className="text-center px-4 max-w-5xl mx-auto">
-          <div className="animate-fade-in" key={currentSlide}>
+          <div 
+            className="transition-all duration-1000 ease-out" 
+            key={currentSlide}
+            style={{
+              animation: 'fadeInUp 1s ease-out'
+            }}
+          >
             <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white drop-shadow-2xl">
               {slides[currentSlide].title}
             </h1>
             <h2 className="text-3xl md:text-5xl font-semibold mb-8 text-secondary drop-shadow-lg">
               {slides[currentSlide].subtitle}
             </h2>
+            <div className="flex justify-center">
+              <div className="w-24 h-1 bg-secondary rounded-full animate-pulse"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -87,17 +101,17 @@ const HeroSlider = () => {
       {/* Navigation Buttons */}
       <button
         onClick={goToPrevious}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 rounded-full transition-all"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 rounded-full transition-all duration-300 hover:scale-110 glow group"
         aria-label="Previous slide"
       >
-        <ChevronLeft className="w-6 h-6 text-white" />
+        <ChevronLeft className="w-6 h-6 text-white group-hover:text-secondary transition-colors duration-300" />
       </button>
       <button
         onClick={goToNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 rounded-full transition-all"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 rounded-full transition-all duration-300 hover:scale-110 glow group"
         aria-label="Next slide"
       >
-        <ChevronRight className="w-6 h-6 text-white" />
+        <ChevronRight className="w-6 h-6 text-white group-hover:text-secondary transition-colors duration-300" />
       </button>
 
       {/* Indicators */}
@@ -106,14 +120,24 @@ const HeroSlider = () => {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all ${
+            className={`rounded-full transition-all duration-300 hover:scale-125 ${
               index === currentSlide
-                ? 'bg-white w-8'
-                : 'bg-white/50 hover:bg-white/75'
+                ? 'bg-white w-8 h-3 shadow-lg'
+                : 'bg-white/50 hover:bg-white/75 w-3 h-3'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
+      </div>
+
+      {/* Progress Bar */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20">
+        <div 
+          className="h-full bg-secondary transition-all duration-100 ease-linear"
+          style={{ 
+            width: `${((currentSlide + 1) / slides.length) * 100}%` 
+          }}
+        />
       </div>
     </div>
   );
