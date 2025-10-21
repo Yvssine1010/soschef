@@ -6,11 +6,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
 
 const Contact = () => {
   const { toast } = useToast();
-  const { t, isRTL } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,8 +20,8 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: t('contact.form.success.title'),
-      description: t('contact.form.success.description'),
+      title: "Message envoyé !",
+      description: "Nous vous contacterons dans les plus brefs délais.",
     });
     setFormData({ name: '', email: '', phone: '', service: '', message: '' });
   };
@@ -36,40 +34,40 @@ const Contact = () => {
   };
 
   return (
-    <div className={`min-h-screen bg-background pt-24 ${isRTL ? 'rtl' : 'ltr'}`}>
+    <div className="min-h-screen bg-background pt-24">
       <Navigation />
       
       <div className="max-w-7xl mx-auto px-4 py-16">
         <header className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            {t('contact.title')}
+            Contactez SOS CHEF
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {t('contact.subtitle')}
+            Notre équipe est à votre écoute pour vous accompagner dans votre parcours de formation
           </p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
           <div className="lg:col-span-2">
             <div className="bg-card border rounded-2xl p-8">
-              <h2 className="text-2xl font-bold mb-6">{t('contact.form.title')}</h2>
+              <h2 className="text-2xl font-bold mb-6">Demande de Consultation</h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name">{t('contact.form.name')} *</Label>
+                    <Label htmlFor="name">Nom complet *</Label>
                     <Input
                       id="name"
                       name="name"
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder={t('contact.form.namePlaceholder')}
+                      placeholder="Votre nom"
                     />
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="email">{t('contact.form.email')} *</Label>
+                    <Label htmlFor="email">Email *</Label>
                     <Input
                       id="email"
                       name="email"
@@ -77,26 +75,26 @@ const Contact = () => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder={t('contact.form.emailPlaceholder')}
+                      placeholder="votre@email.com"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="phone">{t('contact.form.phone')}</Label>
+                    <Label htmlFor="phone">Téléphone</Label>
                     <Input
                       id="phone"
                       name="phone"
                       type="tel"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder={t('contact.form.phonePlaceholder')}
+                      placeholder="+33 1 23 45 67 89"
                     />
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="service">{t('contact.form.service')} *</Label>
+                    <Label htmlFor="service">Service souhaité *</Label>
                     <select
                       id="service"
                       name="service"
@@ -105,37 +103,38 @@ const Contact = () => {
                       onChange={handleChange}
                       className="w-full px-3 py-2 border rounded-lg bg-background"
                     >
-                      <option value="">{t('contact.form.servicePlaceholder')}</option>
-                      <option value="career">{t('contact.form.services.career')}</option>
-                      <option value="training">{t('contact.form.services.training')}</option>
-                      <option value="immigration">{t('contact.form.services.immigration')}</option>
-                      <option value="custom">{t('contact.form.services.custom')}</option>
+                      <option value="">Sélectionnez un service</option>
+                      <option value="career">Développement de Carrière</option>
+                      <option value="training">Formation d'Excellence</option>
+                      <option value="immigration">Services d'Immigration</option>
+                      <option value="custom">Prestations sur Mesure</option>
                     </select>
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message">{t('contact.form.message')} *</Label>
+                  <Label htmlFor="message">Votre message *</Label>
                   <Textarea
                     id="message"
                     name="message"
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder={t('contact.form.messagePlaceholder')}
+                    placeholder="Décrivez votre projet ou vos besoins..."
                     rows={6}
                   />
                 </div>
 
                 <div className="bg-muted/50 border rounded-lg p-4">
                   <p className="text-sm text-muted-foreground">
-                    <strong>{t('contact.form.note.title')}:</strong> {t('contact.form.note.description')}
+                    <strong>Note importante :</strong> Tous nos services sont payants et font l'objet d'un devis personnalisé. 
+                    Nous vous contacterons pour discuter de vos besoins et vous proposer une offre adaptée.
                   </p>
                 </div>
 
                 <Button type="submit" className="w-full luxury-gradient text-primary-foreground font-semibold py-6 text-lg">
                   <Send className="w-5 h-5 mr-2" />
-                  {t('contact.form.submit')}
+                  Envoyer ma demande
                 </Button>
               </form>
             </div>
@@ -143,7 +142,7 @@ const Contact = () => {
 
           <div className="space-y-6">
             <div className="bg-card border rounded-2xl p-6">
-              <h3 className="text-xl font-bold mb-6">{t('contact.info.title')}</h3>
+              <h3 className="text-xl font-bold mb-6">Informations de Contact</h3>
               
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
@@ -151,7 +150,7 @@ const Contact = () => {
                     <Mail className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <div>
-                    <p className="font-medium mb-1">{t('contact.info.email')}</p>
+                    <p className="font-medium mb-1">Email</p>
                     <a href="mailto:contact@orientapro.com" className="text-sm text-muted-foreground hover:text-primary">
                       contact@orientapro.com
                     </a>
@@ -163,7 +162,7 @@ const Contact = () => {
                     <Phone className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <div>
-                    <p className="font-medium mb-1">{t('contact.info.phones')}</p>
+                    <p className="font-medium mb-1">Téléphones</p>
                     <div className="space-y-1">
                       <a href="tel:+212520724513" className="block text-sm text-muted-foreground hover:text-primary">
                         📞 0520 724 513
@@ -183,9 +182,10 @@ const Contact = () => {
                     <MapPin className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <div>
-                    <p className="font-medium mb-1">{t('contact.info.address')}</p>
+                    <p className="font-medium mb-1">Adresse</p>
                     <p className="text-sm text-muted-foreground">
-                      {t('contact.info.addressDetails')}
+                      23 Boulevard Sidi Abderrahmane<br />
+                      Casablanca, Maroc
                     </p>
                   </div>
                 </div>
@@ -193,19 +193,19 @@ const Contact = () => {
             </div>
 
             <div className="bg-primary text-primary-foreground rounded-2xl p-6">
-              <h3 className="text-xl font-bold mb-3">{t('contact.hours.title')}</h3>
+              <h3 className="text-xl font-bold mb-3">Horaires d'Ouverture</h3>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span>{t('contact.hours.weekdays')}</span>
-                  <span>{t('contact.hours.weekdaysTime')}</span>
+                  <span>Lundi - Vendredi</span>
+                  <span>9h00 - 18h00</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>{t('contact.hours.saturday')}</span>
-                  <span>{t('contact.hours.saturdayTime')}</span>
+                  <span>Samedi</span>
+                  <span>10h00 - 14h00</span>
                 </div>
                 <div className="flex justify-between opacity-75">
-                  <span>{t('contact.hours.sunday')}</span>
-                  <span>{t('contact.hours.sundayTime')}</span>
+                  <span>Dimanche</span>
+                  <span>Fermé</span>
                 </div>
               </div>
             </div>

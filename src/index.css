@@ -111,56 +111,21 @@ All colors MUST be HSL.
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
   }
-
-  /* RTL Support */
-  [dir="rtl"] {
-    text-align: right;
-  }
-
-  [dir="rtl"] .rtl\:flex-row-reverse {
-    flex-direction: row-reverse;
-  }
-
-  [dir="rtl"] .rtl\:text-right {
-    text-align: right;
-  }
-
-  [dir="rtl"] .rtl\:text-left {
-    text-align: left;
-  }
-
-  [dir="rtl"] .rtl\:mr-2 {
-    margin-right: 0.5rem;
-    margin-left: 0;
-  }
-
-  [dir="rtl"] .rtl\:ml-2 {
-    margin-left: 0.5rem;
-    margin-right: 0;
-  }
 }
 
 @layer components {
-  /* Navigation Effects */
   .nav-link {
-    @apply relative inline-flex justify-center items-center px-6 py-3 rounded-lg overflow-hidden transition-all duration-300 ease-out;
-    transform: translateZ(0);
+    @apply relative inline-flex justify-center items-center px-6 py-3 rounded-lg overflow-hidden transition-all duration-200 ease-in;
   }
 
   .nav-link::before {
-    @apply absolute z-[-1] content-[''] block rounded-lg w-full h-full top-0 transform translate-x-full transition-all duration-300 ease-out bg-muted;
+    @apply absolute z-[-1] content-[''] block rounded-lg w-full h-full top-0 transform translate-x-full transition-transform duration-200 ease-in bg-muted;
     transform-origin: center right;
-  }
-
-  .nav-link::after {
-    @apply absolute inset-0 rounded-lg opacity-0 transition-opacity duration-300;
-    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
-    transform: translateX(-100%);
   }
 
   .nav-link:hover,
   .nav-link:focus {
-    @apply outline-0 transform scale-105;
+    @apply outline-0;
   }
 
   .nav-link:hover::before {
@@ -168,229 +133,15 @@ All colors MUST be HSL.
     transform-origin: center left;
   }
 
-  .nav-link:hover::after {
-    @apply opacity-100;
-    animation: shimmer 0.6s ease-out;
-  }
-
-  /* Card Effects */
   .service-card {
-    @apply relative overflow-hidden rounded-xl border bg-card transition-all duration-500 ease-out;
-    transform: translateZ(0);
+    @apply relative overflow-hidden rounded-xl border bg-card transition-all duration-300 hover:shadow-[var(--shadow-elegant)];
   }
 
-  .service-card::before {
-    @apply absolute inset-0 opacity-0 transition-opacity duration-500;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
-    content: '';
-  }
-
-  .service-card:hover {
-    @apply shadow-[var(--shadow-elegant)] transform scale-105;
-  }
-
-  .service-card:hover::before {
-    @apply opacity-100;
-  }
-
-  /* Hover Scale Effect */
-  .hover-scale {
-    @apply transition-all duration-300 ease-out;
-    transform: translateZ(0);
-  }
-
-  .hover-scale:hover {
-    @apply transform scale-105;
-  }
-
-  /* Gradient Backgrounds */
   .luxury-gradient {
     background: var(--gradient-luxury);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .luxury-gradient::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
-  }
-
-  .luxury-gradient:hover::before {
-    left: 100%;
   }
 
   .hero-gradient {
     background: var(--gradient-hero);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-gradient::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-    transition: left 0.5s;
-  }
-
-  .hero-gradient:hover::before {
-    left: 100%;
-  }
-
-  /* Floating Animation */
-  .float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .float-delayed {
-    animation: float 6s ease-in-out infinite 2s;
-  }
-
-  /* Pulse Animation */
-  .pulse-slow {
-    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  /* Bounce Animation */
-  .bounce-slow {
-    animation: bounce 3s infinite;
-  }
-
-  /* Rotate Animation */
-  .rotate-slow {
-    animation: rotate 20s linear infinite;
-  }
-
-  /* Slide In Animations */
-  .slide-in-left {
-    animation: slideInLeft 0.8s ease-out;
-  }
-
-  .slide-in-right {
-    animation: slideInRight 0.8s ease-out;
-  }
-
-  .slide-in-up {
-    animation: slideInUp 0.8s ease-out;
-  }
-
-  .slide-in-down {
-    animation: slideInDown 0.8s ease-out;
-  }
-
-  /* Fade Animations */
-  .fade-in {
-    animation: fadeIn 1s ease-out;
-  }
-
-  .fade-in-up {
-    animation: fadeInUp 1s ease-out;
-  }
-
-  .fade-in-down {
-    animation: fadeInDown 1s ease-out;
-  }
-
-  .fade-in-left {
-    animation: fadeInLeft 1s ease-out;
-  }
-
-  .fade-in-right {
-    animation: fadeInRight 1s ease-out;
-  }
-
-  /* Scale Animations */
-  .scale-in {
-    animation: scaleIn 0.8s ease-out;
-  }
-
-  .scale-in-center {
-    animation: scaleInCenter 0.8s ease-out;
-  }
-
-  /* Text Animations */
-  .text-shimmer {
-    background: linear-gradient(90deg, #000 0%, #fff 50%, #000 100%);
-    background-size: 200% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shimmer 2s linear infinite;
-  }
-
-  /* Glow Effects */
-  .glow {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-    transition: box-shadow 0.3s ease;
-  }
-
-  .glow:hover {
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
-  }
-
-  /* Loading Skeleton */
-  .skeleton {
-    @apply bg-muted animate-pulse;
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-    background-size: 200% 100%;
-    animation: skeleton-loading 1.5s infinite;
-  }
-
-  /* Parallax Effect */
-  .parallax {
-    transform: translateZ(0);
-    will-change: transform;
-  }
-
-  /* Glass Morphism */
-  .glass {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  /* Gradient Text */
-  .gradient-text {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Magnetic Effect */
-  .magnetic {
-    transition: transform 0.3s cubic-bezier(0.23, 1, 0.320, 1);
-  }
-
-  /* Ripple Effect */
-  .ripple {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .ripple::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-  }
-
-  .ripple:active::before {
-    width: 300px;
-    height: 300px;
   }
 }
