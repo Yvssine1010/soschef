@@ -227,14 +227,17 @@ const Formations = () => {
               </div>
 
               <div className="space-y-3 mb-6">
-                {Array.isArray(t('formations.services.highlights')) ? t('formations.services.highlights').map((highlight, idx) => (
-                  <div key={idx} className="flex items-start gap-3 group">
-                    <div className="w-6 h-6 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
-                      <span className="text-xs font-bold text-secondary group-hover:text-primary transition-colors duration-300">{idx + 1}</span>
+                {(() => {
+                  const highlights = t('formations.services.highlights');
+                  return Array.isArray(highlights) ? highlights.map((highlight: string, idx: number) => (
+                    <div key={idx} className="flex items-start gap-3 group">
+                      <div className="w-6 h-6 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
+                        <span className="text-xs font-bold text-secondary group-hover:text-primary transition-colors duration-300">{idx + 1}</span>
+                      </div>
+                      <span className="text-sm sm:text-base group-hover:text-primary transition-colors duration-300">{highlight}</span>
                     </div>
-                    <span className="text-sm sm:text-base group-hover:text-primary transition-colors duration-300">{highlight}</span>
-                  </div>
-                )) : null}
+                  )) : null;
+                })()}
               </div>
             </div>
           </div>

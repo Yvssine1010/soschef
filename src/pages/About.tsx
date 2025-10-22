@@ -103,18 +103,21 @@ const About = () => {
           <section className="mb-20">
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">{t('about.axes.title')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {Array.isArray(t('about.axes.items')) ? t('about.axes.items').map((item, index) => {
-                const Icon = item.icon === 'Target' ? Target : item.icon === 'Eye' ? Eye : Award;
-                return (
-                  <div key={index} className="text-center p-8 rounded-2xl border bg-card hover:shadow-[var(--shadow-elegant)] transition-all">
-                    <div className="inline-flex p-4 rounded-xl luxury-gradient mb-6">
-                      <Icon className="w-8 h-8 text-white" />
+              {(() => {
+                const items = t('about.axes.items');
+                return Array.isArray(items) ? items.map((item: any, index: number) => {
+                  const Icon = item.icon === 'Target' ? Target : item.icon === 'Eye' ? Eye : Award;
+                  return (
+                    <div key={index} className="text-center p-8 rounded-2xl border bg-card hover:shadow-[var(--shadow-elegant)] transition-all">
+                      <div className="inline-flex p-4 rounded-xl luxury-gradient mb-6">
+                        <Icon className="w-8 h-8 text-white" />
+                      </div>
+                      <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                      <p className="text-muted-foreground">{item.description}</p>
                     </div>
-                    <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                    <p className="text-muted-foreground">{item.description}</p>
-                  </div>
-                );
-              }) : null}
+                  );
+                }) : null;
+              })()}
             </div>
           </section>
 

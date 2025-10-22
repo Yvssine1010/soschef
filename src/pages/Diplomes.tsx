@@ -10,8 +10,10 @@ import canadaFlag from '@/assets/canada-flag.jpg';
 const Diplomes = () => {
   const { t, isRTL } = useLanguage();
   
-  const diplomas = Array.isArray(t('diplomas.list')) ? t('diplomas.list') : [];
-  const careers = Array.isArray(t('diplomas.careers')) ? t('diplomas.careers') : [];
+  const diplomasList = t('diplomas.list');
+  const diplomas = (Array.isArray(diplomasList) ? diplomasList : []) as any[];
+  const careersList = t('diplomas.careers');
+  const careers = (Array.isArray(careersList) ? careersList : []) as any[];
 
   return (
     <div className={`min-h-screen bg-background ${isRTL ? 'rtl' : 'ltr'}`}>
@@ -117,11 +119,14 @@ const Diplomes = () => {
                   {t('diplomas.opportunities.seize.description')}
                 </p>
                 <div className="flex flex-wrap gap-4 justify-center mb-8">
-                  {Array.isArray(t('diplomas.opportunities.countries')) ? t('diplomas.opportunities.countries').map((country, index) => (
-                    <span key={index} className="px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">
-                      {country}
-                    </span>
-                  )) : null}
+                  {(() => {
+                    const countries = t('diplomas.opportunities.countries');
+                    return Array.isArray(countries) ? countries.map((country: string, index: number) => (
+                      <span key={index} className="px-4 py-2 bg-white/20 rounded-full text-sm font-semibold">
+                        {country}
+                      </span>
+                    )) : null;
+                  })()}
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                   <img 
