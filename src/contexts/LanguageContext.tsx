@@ -377,6 +377,38 @@ const translations = {
         subtitle: 'Rejoignez SOS CHEF et obtenez un diplôme qui ouvrira les portes de votre carrière internationale',
         formations: 'Voir les formations',
         contact: 'Nous contacter'
+      },
+      sosService: {
+        badge: 'Service Personnel',
+        title: 'SOS SERVICE - Placement de Personnel Qualifié',
+        subtitle: 'Des professionnels expérimentés pour vos besoins au Maroc et à l\'international',
+        intro: 'SOS SERVICE place du personnel qualifié (maison et restaurants, snacks, cafés) partout au Maroc : Femmes ou Hommes, ménage, nounou, baby-sitter, bonne, esthéticienne expérimentée, professionnels dans leurs métiers.',
+        specialists: {
+          title: 'Nos Spécialistes',
+          elderly: {
+            title: 'Soins aux Personnes Âgées',
+            description: 'Des assistants avec une excellente expérience professionnelle qui s\'occupent des personnes âgées entre 60 et 95 ans'
+          },
+          domestic: {
+            title: 'Personnel Domestique',
+            description: 'Cuisinière, chauffeur, gouvernante, auxiliaire de vie pour particuliers et entreprises'
+          },
+          hospitality: {
+            title: 'Personnel Hôtelier',
+            description: 'Placement de personnel qualifié dans les établissements hôteliers et restaurants'
+          }
+        },
+        commitment: {
+          title: 'Notre Engagement',
+          description: 'SOS SERVICES est à votre disposition et met tout en œuvre pour vous trouver le meilleur candidat, celui qui conviendra à toutes vos attentes.',
+          trust: 'Accueillir chez soi une personne que l\'on ne connaît pas, lui confier la gestion de sa maison, l\'éducation de ses enfants, la faire entrer dans son quotidien demande une confiance absolue.',
+          process: 'C\'est pour cette raison que notre processus de recrutement est minutieux et rigoureux. Tous les candidats que nous présentons sont qualifiés et disposent d\'au moins une expérience contrôlable.'
+        },
+        guarantee: {
+          title: 'Garantie de Remplacement',
+          description: 'Pour rassurer davantage nos clients, nous proposons des garanties de remplacement allant jusqu\'à 1 mois.',
+          coverage: 'Nos services couvrent tout le territoire marocain et même à l\'international'
+        }
       }
     },
     common: {
@@ -693,6 +725,38 @@ const translations = {
         subtitle: 'Join SOS CHEF and get a diploma that will open the doors to your international career',
         formations: 'View training',
         contact: 'Contact us'
+      },
+      sosService: {
+        badge: 'Personnel Service',
+        title: 'SOS SERVICE - Qualified Personnel Placement',
+        subtitle: 'Experienced professionals for your needs in Morocco and internationally',
+        intro: 'SOS SERVICE places qualified personnel (homes and restaurants, snacks, cafés) throughout Morocco: Women or Men, housekeeping, nanny, babysitter, housekeeper, experienced beauticians, professionals in their fields.',
+        specialists: {
+          title: 'Our Specialists',
+          elderly: {
+            title: 'Elderly Care',
+            description: 'Assistants with excellent professional experience who care for seniors aged 60 to 95'
+          },
+          domestic: {
+            title: 'Domestic Staff',
+            description: 'Cook, driver, housekeeper, caregiver for individuals and businesses'
+          },
+          hospitality: {
+            title: 'Hospitality Staff',
+            description: 'Placement of qualified personnel in hotels and restaurants'
+          }
+        },
+        commitment: {
+          title: 'Our Commitment',
+          description: 'SOS SERVICES is at your disposal and does everything possible to find you the best candidate, one who will meet all your expectations.',
+          trust: 'Welcoming someone you don\'t know into your home, entrusting them with managing your household, educating your children, and integrating them into your daily life requires absolute trust.',
+          process: 'This is why our recruitment process is meticulous and rigorous. All candidates we present are qualified and have at least one verifiable experience.'
+        },
+        guarantee: {
+          title: 'Replacement Guarantee',
+          description: 'To further reassure our clients, we offer replacement guarantees of up to 1 month.',
+          coverage: 'Our services cover all of Morocco and even internationally'
+        }
       }
     },
     common: {
@@ -1005,6 +1069,38 @@ const translations = {
         subtitle: 'انضموا إلى SOS CHEF واحصلوا على شهادة تفتح لكم أبواب مسيرتكم الدولية',
         formations: 'شاهدوا التكوينات',
         contact: 'اتصلوا بنا'
+      },
+      sosService: {
+        badge: 'خدمة الموظفين',
+        title: 'SOS SERVICE - توظيف موظفين مؤهلين',
+        subtitle: 'محترفون ذوو خبرة لاحتياجاتكم في المغرب ودولياً',
+        intro: 'SOS SERVICE يوظف موظفين مؤهلين (منازل ومطاعم ووجبات خفيفة ومقاهي) في جميع أنحاء المغرب: نساء أو رجال، تنظيف منازل، مربية أطفال، خادمة، خبيرة تجميل ذات خبرة، محترفون في مجالاتهم.',
+        specialists: {
+          title: 'متخصصونا',
+          elderly: {
+            title: 'رعاية المسنين',
+            description: 'مساعدون ذوو خبرة مهنية ممتازة يعتنون بكبار السن الذين تتراوح أعمارهم بين 60 و 95 عاماً'
+          },
+          domestic: {
+            title: 'الموظفون المنزليون',
+            description: 'طاهية، سائق، مدبرة منزل، مساعد معيشة للأفراد والشركات'
+          },
+          hospitality: {
+            title: 'موظفو الضيافة',
+            description: 'توظيف موظفين مؤهلين في الفنادق والمطاعم'
+          }
+        },
+        commitment: {
+          title: 'التزامنا',
+          description: 'SOS SERVICES في خدمتكم ويبذل كل جهد للعثور على أفضل مرشح، الذي سيلبي جميع توقعاتكم.',
+          trust: 'إن استقبال شخص لا تعرفه في منزلك، وتكليفه بإدارة منزلك، وتعليم أطفالك، وإدخاله في حياتك اليومية يتطلب ثقة مطلقة.',
+          process: 'لهذا السبب، فإن عملية التوظيف لدينا دقيقة وصارمة. جميع المرشحين الذين نقدمهم مؤهلون ولديهم خبرة واحدة على الأقل يمكن التحقق منها.'
+        },
+        guarantee: {
+          title: 'ضمان الاستبدال',
+          description: 'لطمأنة عملائنا بشكل أكبر، نقدم ضمانات استبدال لمدة تصل إلى شهر واحد.',
+          coverage: 'تغطي خدماتنا جميع أنحاء المغرب وحتى دولياً'
+        }
       }
     },
     whatsapp: {
