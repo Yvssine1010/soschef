@@ -1,217 +1,290 @@
-import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { useToast } from '@/hooks/use-toast';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Mail, Phone, MapPin, Clock, CheckCircle2 } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+
+// Import images
+import chefWorking1 from '@/assets/chef-working-1.jpg';
+import chefWorking2 from '@/assets/chef-working-2.jpg';
+import chefTeam from '@/assets/chef-team.jpg';
 
 const Contact = () => {
-  const { toast } = useToast();
   const { t, isRTL } = useLanguage();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: t('contact.form.success.title'),
-      description: t('contact.form.success.description'),
-    });
-    setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
 
   return (
-    <div className={`min-h-screen bg-background pt-24 ${isRTL ? 'rtl' : 'ltr'}`}>
+    <div className={`min-h-screen bg-gradient-to-b from-background via-background to-muted/20 pt-24 ${isRTL ? 'rtl' : 'ltr'}`}>
       <Navigation />
       
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        <header className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            {t('contact.title')}
+      {/* Hero Section */}
+      <section className="max-w-7xl mx-auto px-4 py-20">
+        <div className="text-center mb-16">
+          <Badge className="mb-4 luxury-gradient text-primary-foreground px-4 py-2">
+            {t('contact.hero.subtitle')}
+          </Badge>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent">
+            {t('contact.hero.title')}
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             {t('contact.subtitle')}
           </p>
-        </header>
+        </div>
+      </section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
-          <div className="lg:col-span-2">
-            <div className="bg-card border rounded-2xl p-8">
-              <h2 className="text-2xl font-bold mb-6">{t('contact.form.title')}</h2>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">{t('contact.form.name')} *</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder={t('contact.form.namePlaceholder')}
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="email">{t('contact.form.email')} *</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder={t('contact.form.emailPlaceholder')}
-                    />
-                  </div>
+      {/* Contact Information Cards */}
+      <section className="max-w-7xl mx-auto px-4 py-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Email Card */}
+          <Card className="relative overflow-hidden border-2 hover:border-primary transition-all duration-300 group">
+            <div className="absolute inset-0 luxury-gradient opacity-0 group-hover:opacity-5 transition-opacity" />
+            <CardContent className="p-8">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-4 luxury-gradient rounded-xl">
+                  <Mail className="w-8 h-8 text-primary-foreground" />
                 </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">{t('contact.form.phone')}</Label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder={t('contact.form.phonePlaceholder')}
-                    />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="service">{t('contact.form.service')} *</Label>
-                    <select
-                      id="service"
-                      name="service"
-                      required
-                      value={formData.service}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border rounded-lg bg-background"
-                    >
-                      <option value="">{t('contact.form.servicePlaceholder')}</option>
-                      <option value="career">{t('contact.form.services.career')}</option>
-                      <option value="training">{t('contact.form.services.training')}</option>
-                      <option value="immigration">{t('contact.form.services.immigration')}</option>
-                      <option value="custom">{t('contact.form.services.custom')}</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message">{t('contact.form.message')} *</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    required
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder={t('contact.form.messagePlaceholder')}
-                    rows={6}
-                  />
-                </div>
-
-                <div className="bg-muted/50 border rounded-lg p-4">
-                  <p className="text-sm text-muted-foreground">
-                    <strong>{t('contact.form.note.title')}:</strong> {t('contact.form.note.description')}
-                  </p>
-                </div>
-
-                <Button type="submit" className="w-full luxury-gradient text-primary-foreground font-semibold py-6 text-lg">
-                  <Send className="w-5 h-5 mr-2" />
-                  {t('contact.form.submit')}
-                </Button>
-              </form>
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            <div className="bg-card border rounded-2xl p-6">
-              <h3 className="text-xl font-bold mb-6">{t('contact.info.title')}</h3>
-              
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg luxury-gradient">
-                    <Mail className="w-5 h-5 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <p className="font-medium mb-1">{t('contact.info.email')}</p>
-                    <a href="mailto:contact@orientapro.com" className="text-sm text-muted-foreground hover:text-primary">
-                      contact@orientapro.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg luxury-gradient">
-                    <Phone className="w-5 h-5 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <p className="font-medium mb-1">{t('contact.info.phones')}</p>
-                    <div className="space-y-1">
-                      <a href="tel:+212520724513" className="block text-sm text-muted-foreground hover:text-primary">
-                        📞 0520 724 513
-                      </a>
-                      <a href="tel:+212625819387" className="block text-sm text-muted-foreground hover:text-primary">
-                        📱 0625 819 387
-                      </a>
-                      <a href="tel:+212664003163" className="block text-sm text-muted-foreground hover:text-primary">
-                        📱 0664 003 163
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg luxury-gradient">
-                    <MapPin className="w-5 h-5 text-primary-foreground" />
-                  </div>
-                  <div>
-                    <p className="font-medium mb-1">{t('contact.info.address')}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {t('contact.info.addressDetails')}
-                    </p>
-                  </div>
+                <div>
+                  <h3 className="text-lg font-bold">{t('contact.contact.email')}</h3>
+                  <p className="text-sm text-muted-foreground">{t('contact.contact.emailLabel')}</p>
                 </div>
               </div>
-            </div>
+              <a 
+                href="mailto:soschef2015@gmail.com" 
+                className="text-primary hover:underline font-semibold text-lg block"
+              >
+                soschef2015@gmail.com
+              </a>
+            </CardContent>
+          </Card>
 
-            <div className="bg-primary text-primary-foreground rounded-2xl p-6">
-              <h3 className="text-xl font-bold mb-3">{t('contact.hours.title')}</h3>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span>{t('contact.hours.weekdays')}</span>
-                  <span>{t('contact.hours.weekdaysTime')}</span>
+          {/* Phone Card */}
+          <Card className="relative overflow-hidden border-2 hover:border-primary transition-all duration-300 group">
+            <div className="absolute inset-0 luxury-gradient opacity-0 group-hover:opacity-5 transition-opacity" />
+            <CardContent className="p-8">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-4 luxury-gradient rounded-xl">
+                  <Phone className="w-8 h-8 text-primary-foreground" />
                 </div>
-                <div className="flex justify-between">
-                  <span>{t('contact.hours.saturday')}</span>
-                  <span>{t('contact.hours.saturdayTime')}</span>
+                <div>
+                  <h3 className="text-lg font-bold">{t('contact.contact.phones')}</h3>
+                  <p className="text-sm text-muted-foreground">{t('contact.contact.phoneLabel')}</p>
                 </div>
-                <div className="flex justify-between opacity-75">
-                  <span>{t('contact.hours.sunday')}</span>
-                  <span>{t('contact.hours.sundayTime')}</span>
+              </div>
+              <div className="space-y-2">
+                <a href="tel:+212520724513" className="block text-primary hover:underline font-semibold">
+                  📞 0520 724 513
+                </a>
+                <a href="tel:+212625819387" className="block text-primary hover:underline font-semibold">
+                  📱 0625 819 387
+                </a>
+                <a href="tel:+212664003163" className="block text-primary hover:underline font-semibold">
+                  📱 0664 003 163
+                </a>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Address Card */}
+          <Card className="relative overflow-hidden border-2 hover:border-primary transition-all duration-300 group">
+            <div className="absolute inset-0 luxury-gradient opacity-0 group-hover:opacity-5 transition-opacity" />
+            <CardContent className="p-8">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-4 luxury-gradient rounded-xl">
+                  <MapPin className="w-8 h-8 text-primary-foreground" />
                 </div>
+                <div>
+                  <h3 className="text-lg font-bold">{t('contact.contact.address')}</h3>
+                  <p className="text-sm text-muted-foreground">Visit us</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground whitespace-pre-line">
+                {t('contact.contact.addressDetails')}
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Image Sections */}
+      <section className="max-w-7xl mx-auto px-4 py-16">
+        {/* Expertise Section */}
+        <div className="mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className={`space-y-6 ${isRTL ? 'lg:order-2' : ''}`}>
+              <Badge className="mb-4">{t('contact.expertise.subtitle')}</Badge>
+              <h2 className="text-4xl md:text-5xl font-bold">
+                {t('contact.expertise.title')}
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {t('contact.expertise.description')}
+              </p>
+              <div className="flex items-center gap-2 text-primary font-semibold">
+                <CheckCircle2 className="w-5 h-5" />
+                <span>Accredited since 2015</span>
+              </div>
+            </div>
+            <div className={`relative overflow-hidden rounded-2xl shadow-2xl ${isRTL ? 'lg:order-1' : ''}`}>
+              <img 
+                src={chefWorking1} 
+                alt={t('contact.expertise.imageAlt')}
+                className="w-full h-[500px] object-cover transition-transform duration-500 hover:scale-105"
+              />
+              <div className="absolute inset-0 luxury-gradient opacity-0 hover:opacity-10 transition-opacity" />
+            </div>
+          </div>
+        </div>
+
+        {/* Facilities Section */}
+        <div className="mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+              <img 
+                src={chefTeam} 
+                alt={t('contact.facilities.imageAlt')}
+                className="w-full h-[500px] object-cover transition-transform duration-500 hover:scale-105"
+              />
+              <div className="absolute inset-0 luxury-gradient opacity-0 hover:opacity-10 transition-opacity" />
+            </div>
+            <div className="space-y-6">
+              <Badge className="mb-4">{t('contact.facilities.subtitle')}</Badge>
+              <h2 className="text-4xl md:text-5xl font-bold">
+                {t('contact.facilities.title')}
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {t('contact.facilities.description')}
+              </p>
+              <div className="flex items-center gap-2 text-primary font-semibold">
+                <CheckCircle2 className="w-5 h-5" />
+                <span>Professional equipment</span>
               </div>
             </div>
           </div>
         </div>
-      </div>
+
+        {/* Success Section */}
+        <div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className={`space-y-6 ${isRTL ? 'lg:order-2' : ''}`}>
+              <Badge className="mb-4">{t('contact.success.subtitle')}</Badge>
+              <h2 className="text-4xl md:text-5xl font-bold">
+                {t('contact.success.title')}
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                {t('contact.success.description')}
+              </p>
+              <div className="flex items-center gap-2 text-primary font-semibold">
+                <CheckCircle2 className="w-5 h-5" />
+                <span>Success stories worldwide</span>
+              </div>
+            </div>
+            <div className={`relative overflow-hidden rounded-2xl shadow-2xl ${isRTL ? 'lg:order-1' : ''}`}>
+              <img 
+                src={chefWorking2} 
+                alt={t('contact.success.imageAlt')}
+                className="w-full h-[500px] object-cover transition-transform duration-500 hover:scale-105"
+              />
+              <div className="absolute inset-0 luxury-gradient opacity-0 hover:opacity-10 transition-opacity" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hours & CTA Section */}
+      <section className="max-w-7xl mx-auto px-4 py-16 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Opening Hours */}
+          <Card className="border-2">
+            <CardContent className="p-8">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-3 luxury-gradient rounded-lg">
+                  <Clock className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <h3 className="text-2xl font-bold">{t('contact.hours.title')}</h3>
+              </div>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center py-3 border-b">
+                  <span className="font-medium">{t('contact.hours.weekdays')}</span>
+                  <span className="text-muted-foreground">{t('contact.hours.weekdaysTime')}</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b">
+                  <span className="font-medium">{t('contact.hours.saturday')}</span>
+                  <span className="text-muted-foreground">{t('contact.hours.saturdayTime')}</span>
+                </div>
+                <div className="flex justify-between items-center py-3 opacity-60">
+                  <span>{t('contact.hours.sunday')}</span>
+                  <span>{t('contact.hours.sundayTime')}</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* CTA Card */}
+          <Card className="luxury-gradient border-0 relative overflow-hidden">
+            <div className="absolute inset-0 bg-black/10" />
+            <CardContent className="p-8 relative z-10 text-primary-foreground">
+              <h3 className="text-2xl font-bold mb-2">{t('contact.cta.title')}</h3>
+              <p className="text-muted-foreground/80 mb-6">{t('contact.cta.subtitle')}</p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  asChild
+                  variant="secondary"
+                  className="flex-1 hover:scale-105 transition-transform"
+                >
+                  <a href="tel:+212520724513">
+                    <Phone className="w-4 h-4 mr-2" />
+                    {t('contact.cta.call')}
+                  </a>
+                </Button>
+                <Button 
+                  asChild
+                  variant="outline"
+                  className="flex-1 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary transition-all"
+                >
+                  <a href="mailto:soschef2015@gmail.com">
+                    <Mail className="w-4 h-4 mr-2" />
+                    {t('contact.cta.email')}
+                  </a>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="max-w-7xl mx-auto px-4 py-20 text-center">
+        <div className="max-w-3xl mx-auto space-y-6">
+          <h2 className="text-4xl md:text-5xl font-bold">
+            {t('contact.modernContact.title')}
+          </h2>
+          <p className="text-xl text-muted-foreground">
+            {t('contact.modernContact.subtitle')}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+            <Button 
+              size="lg"
+              asChild
+              className="luxury-gradient text-primary-foreground hover:scale-105 transition-transform"
+            >
+              <a href="tel:+212520724513">
+                <Phone className="w-5 h-5 mr-2" />
+                {t('contact.cta.call')}
+              </a>
+            </Button>
+            <Button 
+              size="lg"
+              asChild
+              variant="outline"
+              className="hover:scale-105 transition-transform"
+            >
+              <a href="mailto:soschef2015@gmail.com">
+                <Mail className="w-5 h-5 mr-2" />
+                {t('contact.cta.email')}
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

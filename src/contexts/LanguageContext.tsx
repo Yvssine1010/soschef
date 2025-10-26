@@ -250,40 +250,42 @@ const translations = {
     contact: {
       title: 'Contactez SOS CHEF',
       subtitle: 'Notre équipe est à votre écoute pour vous accompagner dans votre parcours de formation',
-      form: {
-        title: 'Demande de Consultation',
-        name: 'Nom complet',
-        namePlaceholder: 'Votre nom',
-        email: 'Email',
-        emailPlaceholder: 'votre@email.com',
-        phone: 'Téléphone',
-        phonePlaceholder: '+33 1 23 45 67 89',
-        service: 'Service souhaité',
-        servicePlaceholder: 'Sélectionnez un service',
-        services: {
-          career: 'Développement de Carrière',
-          training: 'Formation d\'Excellence',
-          immigration: 'Services d\'Immigration',
-          custom: 'Prestations sur Mesure'
-        },
-        message: 'Votre message',
-        messagePlaceholder: 'Décrivez votre projet ou vos besoins...',
-        note: {
-          title: 'Note importante',
-          description: 'Tous nos services sont payants et font l\'objet d\'un devis personnalisé. Nous vous contacterons pour discuter de vos besoins et vous proposer une offre adaptée.'
-        },
-        submit: 'Envoyer ma demande',
-        success: {
-          title: 'Message envoyé !',
-          description: 'Nous vous contacterons dans les plus brefs délais.'
-        }
+      hero: {
+        title: 'Notre Équipe Vous Accompagne',
+        subtitle: 'Contactez-nous pour démarrer votre aventure culinaire'
       },
-      info: {
-        title: 'Informations de Contact',
+      contact: {
+        title: 'Coordonnées',
+        subtitle: 'Restons en contact',
         email: 'Email',
         phones: 'Téléphones',
         address: 'Adresse',
-        addressDetails: '23 Boulevard Sidi Abderrahmane\nCasablanca, Maroc'
+        addressDetails: '23 Boulevard Sidi Abderrahmane\nCasablanca, Maroc',
+        emailLabel: 'Écrivez-nous',
+        phoneLabel: 'Appelez-nous'
+      },
+      modernContact: {
+        title: 'Restons Connectés',
+        subtitle: 'Plusieurs façons de nous joindre',
+        emailAddress: 'soschef2015@gmail.com'
+      },
+      expertise: {
+        title: 'Notre Expertise Culinaire',
+        subtitle: 'Des années d\'expérience',
+        description: 'Depuis 2015, nous formons les meilleurs professionnels de la cuisine avec un savoir-faire unique.',
+        imageAlt: 'Notre expertise en cuisine'
+      },
+      facilities: {
+        title: 'Installations Moderne',
+        subtitle: 'Équipements de Pointe',
+        description: 'Nos locaux sont équipés du matériel professionnel le plus moderne pour votre formation.',
+        imageAlt: 'Nos installations modernes'
+      },
+      success: {
+        title: 'Plus de 1000 Diplômés',
+        subtitle: 'Des carrières brillantes',
+        description: 'Rejoignez une communauté grandissante de professionnels qui ont transformé leur passion en carrière.',
+        imageAlt: 'Nos diplômés en formation'
       },
       hours: {
         title: 'Horaires d\'Ouverture',
@@ -293,6 +295,12 @@ const translations = {
         saturdayTime: '10h00 - 14h00',
         sunday: 'Dimanche',
         sundayTime: 'Fermé'
+      },
+      cta: {
+        title: 'Prêt à Commencer ?',
+        subtitle: 'Contactez-nous dès aujourd\'hui',
+        call: 'Appelez-nous',
+        email: 'Envoyez un Email'
       }
     },
     whatsapp: {
@@ -602,40 +610,42 @@ const translations = {
     contact: {
       title: 'Contact SOS CHEF',
       subtitle: 'Our team is listening to accompany you in your training journey',
-      form: {
-        title: 'Consultation Request',
-        name: 'Full name',
-        namePlaceholder: 'Your name',
-        email: 'Email',
-        emailPlaceholder: 'your@email.com',
-        phone: 'Phone',
-        phonePlaceholder: '+33 1 23 45 67 89',
-        service: 'Desired service',
-        servicePlaceholder: 'Select a service',
-        services: {
-          career: 'Career Development',
-          training: 'Excellence Training',
-          immigration: 'Immigration Services',
-          custom: 'Custom Services'
-        },
-        message: 'Your message',
-        messagePlaceholder: 'Describe your project or needs...',
-        note: {
-          title: 'Important note',
-          description: 'All our services are paid and subject to a personalized quote. We will contact you to discuss your needs and propose an adapted offer.'
-        },
-        submit: 'Send my request',
-        success: {
-          title: 'Message sent!',
-          description: 'We will contact you as soon as possible.'
-        }
+      hero: {
+        title: 'Our Team Is Here For You',
+        subtitle: 'Contact us to start your culinary adventure'
       },
-      info: {
-        title: 'Contact Information',
+      contact: {
+        title: 'Contact Details',
+        subtitle: 'Stay in touch',
         email: 'Email',
         phones: 'Phones',
         address: 'Address',
-        addressDetails: '23 Boulevard Sidi Abderrahmane\nCasablanca, Morocco'
+        addressDetails: '23 Boulevard Sidi Abderrahmane\nCasablanca, Morocco',
+        emailLabel: 'Email us',
+        phoneLabel: 'Call us'
+      },
+      modernContact: {
+        title: 'Stay Connected',
+        subtitle: 'Multiple ways to reach us',
+        emailAddress: 'soschef2015@gmail.com'
+      },
+      expertise: {
+        title: 'Our Culinary Expertise',
+        subtitle: 'Years of experience',
+        description: 'Since 2015, we have been training the best culinary professionals with unique expertise.',
+        imageAlt: 'Our culinary expertise'
+      },
+      facilities: {
+        title: 'Modern Facilities',
+        subtitle: 'State-of-the-art Equipment',
+        description: 'Our facilities are equipped with the most modern professional equipment for your training.',
+        imageAlt: 'Our modern facilities'
+      },
+      success: {
+        title: 'Over 1000 Graduates',
+        subtitle: 'Successful careers',
+        description: 'Join a growing community of professionals who have transformed their passion into a career.',
+        imageAlt: 'Our graduates in training'
       },
       hours: {
         title: 'Opening Hours',
@@ -645,6 +655,12 @@ const translations = {
         saturdayTime: '10:00 AM - 2:00 PM',
         sunday: 'Sunday',
         sundayTime: 'Closed'
+      },
+      cta: {
+        title: 'Ready to Get Started?',
+        subtitle: 'Contact us today',
+        call: 'Call us',
+        email: 'Send an Email'
       }
     },
     diplomas: {
@@ -946,40 +962,42 @@ const translations = {
     contact: {
       title: 'اتصل بـ SOS CHEF',
       subtitle: 'فريقنا يستمع إليكم لمرافقتكم في رحلة تدريبكم',
-      form: {
-        title: 'طلب استشارة',
-        name: 'الاسم الكامل',
-        namePlaceholder: 'اسمكم',
-        email: 'البريد الإلكتروني',
-        emailPlaceholder: 'بريدكم@الإلكتروني.com',
-        phone: 'الهاتف',
-        phonePlaceholder: '+33 1 23 45 67 89',
-        service: 'الخدمة المطلوبة',
-        servicePlaceholder: 'اختر خدمة',
-        services: {
-          career: 'تطوير المسيرة المهنية',
-          training: 'التدريب المتميز',
-          immigration: 'خدمات الهجرة',
-          custom: 'خدمات مخصصة'
-        },
-        message: 'رسالتكم',
-        messagePlaceholder: 'اوصفوا مشروعكم أو احتياجاتكم...',
-        note: {
-          title: 'ملاحظة مهمة',
-          description: 'جميع خدماتنا مدفوعة وتخضع لعرض سعر شخصي. سنتصل بكم لمناقشة احتياجاتكم واقتراح عرض مكيف.'
-        },
-        submit: 'أرسل طلبي',
-        success: {
-          title: 'تم إرسال الرسالة!',
-          description: 'سنتصل بكم في أقرب وقت ممكن.'
-        }
+      hero: {
+        title: 'فريقنا في خدمتكم',
+        subtitle: 'اتصلوا بنا لبدء مغامرتككم الطهوية'
       },
-      info: {
+      contact: {
         title: 'معلومات الاتصال',
+        subtitle: 'بقىوا على تواصل',
         email: 'البريد الإلكتروني',
         phones: 'الهواتف',
         address: 'العنوان',
-        addressDetails: '23 شارع سيدي عبد الرحمان\nالدار البيضاء، المغرب'
+        addressDetails: '23 شارع سيدي عبد الرحمان\nالدار البيضاء، المغرب',
+        emailLabel: 'أرسلوا لنا بريداً',
+        phoneLabel: 'اتصلوا بنا'
+      },
+      modernContact: {
+        title: 'بقىوا متصلين',
+        subtitle: 'طرق متعددة للوصول إلينا',
+        emailAddress: 'soschef2015@gmail.com'
+      },
+      expertise: {
+        title: 'خبرتنا الطهوية',
+        subtitle: 'سنوات من الخبرة',
+        description: 'منذ عام 2015، نكون أفضل المهنيين الطهويين بخبرة فريدة.',
+        imageAlt: 'خبرتنا الطهوية'
+      },
+      facilities: {
+        title: 'مرافق حديثة',
+        subtitle: 'معدات متطورة',
+        description: 'مرافقنا مجهزة بأحدث المعدات المهنية لتدريبكم.',
+        imageAlt: 'مرافقنا الحديثة'
+      },
+      success: {
+        title: 'أكثر من 1000 خريج',
+        subtitle: 'مسيرات مهنية ناجحة',
+        description: 'انضموا إلى مجتمع متنام من المهنيين الذين حولوا شغفهم إلى مهنة.',
+        imageAlt: 'خريجونا في التدريب'
       },
       hours: {
         title: 'ساعات العمل',
@@ -989,6 +1007,12 @@ const translations = {
         saturdayTime: '10:00 - 14:00',
         sunday: 'الأحد',
         sundayTime: 'مغلق'
+      },
+      cta: {
+        title: 'مستعدون للبدء؟',
+        subtitle: 'اتصلوا بنا اليوم',
+        call: 'اتصلوا بنا',
+        email: 'أرسلوا بريداً إلكترونياً'
       }
     },
     diplomas: {
