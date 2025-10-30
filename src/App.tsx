@@ -8,6 +8,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import Navigation from "./components/Navigation";
 import PageTransition from "./components/ui/page-transition";
 import WhatsAppButton from "./components/WhatsAppButton";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Formations from "./pages/Formations";
 import Diplomes from "./pages/Diplomes";
@@ -47,6 +48,7 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
           </PageTransition>
+          <Footer />
           <WhatsAppButton />
         </BrowserRouter>
       </TooltipProvider>
