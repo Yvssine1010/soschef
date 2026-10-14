@@ -1,6 +1,5 @@
-import Navigation from '@/components/Navigation';
 import owner from '@/assets/owner.png';
-import logo from '@/assets/sos-chef-logo.jpg';
+import logo from '@/assets/sos-chef-logo.png.asset.json';
 import { Phone, Mail, MapPin, Award, Users, Target, Heart, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -11,13 +10,12 @@ const About = () => {
   
   return (
     <div className={`min-h-screen bg-background ${isRTL ? 'rtl' : 'ltr'}`}>
-      <Navigation />
       
-      <div className="pt-32 pb-16 px-4">
+      <div className="pt-12 pb-16 px-4">
         <div className="max-w-7xl mx-auto">
           <header className="text-center mb-16">
             <div className="flex justify-center mb-6">
-              <img src={logo} alt="SOS CHEF" className="h-32 w-32" />
+              <img src={logo.url} alt="SOS CHEF" className="brand-logo-surface h-32 w-32 object-contain" />
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-4">
               {t('about.title')}
