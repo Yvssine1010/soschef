@@ -111,6 +111,7 @@ All colors MUST be HSL.
     /* Prevent horizontal side-scrolling (left/right swipe) on every page.
        Entrance animations and zoomed hero slides overflow the viewport edge;
        `clip` removes them from scrollable area without creating a scroll container. */
+    overflow-x: hidden;
     overflow-x: clip;
   }
 
