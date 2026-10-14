@@ -1,4 +1,3 @@
-import Navigation from '@/components/Navigation';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Mail, Phone, MapPin, Clock, CheckCircle2 } from 'lucide-react';
@@ -14,8 +13,7 @@ const Contact = () => {
   const { t, isRTL } = useLanguage();
 
   return (
-    <div className={`min-h-screen bg-gradient-to-b from-background via-background to-muted/20 pt-24 ${isRTL ? 'rtl' : 'ltr'}`}>
-      <Navigation />
+    <div className={`min-h-screen bg-gradient-to-b from-background via-background to-muted/20 ${isRTL ? 'rtl' : 'ltr'}`}>
       
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 py-20">

@@ -1,6 +1,8 @@
 import { Globe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import type { Language } from '@/contexts/LanguageContext';
 
 const LanguageSwitcher = () => {
   const { language, setLanguage, isRTL } = useLanguage();
@@ -15,21 +17,23 @@ const LanguageSwitcher = () => {
   const currentLanguage = languages.find(lang => lang.code === language);
 
   const handleLanguageChange = (langCode: string) => {
-    setLanguage(langCode as any);
+    setLanguage(langCode as Language);
     setIsOpen(false);
   };
 
   return (
     <div className="relative">
-      <button
+      <Button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 rounded-lg bg-card/80 backdrop-blur-sm border border-border hover:bg-accent transition-all duration-300 hover-scale group"
+        variant="ghost"
+        className="group h-11 w-9 gap-2 px-0 sm:w-auto sm:px-3"
+        aria-expanded={isOpen}
         aria-label="Change language"
       >
         <Globe className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" />
-        <span className="text-sm font-medium">{currentLanguage?.flag}</span>
+        <span className="hidden text-sm font-medium sm:inline">{currentLanguage?.flag}</span>
         <span className="text-sm font-medium hidden sm:block">{currentLanguage?.name}</span>
-      </button>
+      </Button>
 
       {isOpen && (
         <div className={`absolute top-full mt-2 bg-card border border-border rounded-lg shadow-lg z-50 min-w-[160px] ${
@@ -37,10 +41,11 @@ const LanguageSwitcher = () => {
         }`}>
           <div className="py-2">
             {languages.map((lang) => (
-              <button
+              <Button
                 key={lang.code}
                 onClick={() => handleLanguageChange(lang.code)}
-                className={`w-full flex items-center gap-3 px-4 py-2 text-sm hover:bg-accent transition-colors duration-200 ${
+                variant="ghost"
+                className={`w-full justify-start gap-3 rounded-none px-4 py-2 text-sm transition-colors duration-200 ${
                   language === lang.code ? 'bg-primary/10 text-primary font-medium' : 'text-foreground'
                 }`}
               >
@@ -49,7 +54,7 @@ const LanguageSwitcher = () => {
                 {language === lang.code && (
                   <div className="ml-auto w-2 h-2 bg-primary rounded-full"></div>
                 )}
-              </button>
+              </Button>
             ))}
           </div>
         </div>
