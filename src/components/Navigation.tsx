@@ -32,7 +32,7 @@ const Navigation = () => {
       <div className="mx-auto flex min-h-[120px] max-w-[1440px] items-center justify-between gap-2 px-3 sm:min-h-[128px] sm:gap-5 sm:px-6 lg:px-8">
         <Link to="/" aria-label="SOS CHEF" className="brand-lockup flex min-w-0 shrink-0 items-center gap-3 sm:gap-4">
           <span className="brand-logo-surface flex h-[100px] w-[76px] shrink-0 items-center justify-center sm:h-[108px] sm:w-[82px]">
-            <img src={logo.url} alt="SOS CHEF" className="h-[96px] w-[70px] object-contain sm:h-[104px] sm:w-[76px]" fetchPriority="high" />
+            <img src={`https://orienta-pro-elevate.lovable.app${logo.url}`} alt="SOS CHEF" className="h-[96px] w-[70px] object-contain sm:h-[104px] sm:w-[76px]" fetchPriority="high" />
           </span>
           <span className="flex min-w-0 flex-col gap-1">
             <span className="brand-name whitespace-nowrap font-sans text-[25px] font-bold leading-none sm:text-[32px]">SOS <span className="text-primary">CHEF</span></span>

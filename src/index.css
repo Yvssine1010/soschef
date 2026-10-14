@@ -441,3 +441,11 @@ All colors MUST be HSL.
     height: 300px;
   }
 }
+
+@media (max-width: 359px) {
+  .brand-lockup { gap: 8px; }
+  .brand-lockup .brand-logo-surface { width: 64px; }
+  .brand-lockup .brand-logo-surface img { width: 60px; }
+  .brand-name { font-size: 22px; }
+  .brand-lockup > span:last-child > span:last-child { max-width: 112px; }
+}

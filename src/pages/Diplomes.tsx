@@ -24,7 +24,7 @@ const Diplomes = () => {
         <div className="max-w-7xl mx-auto">
           <header className="text-center mb-16">
             <div className="flex justify-center mb-6">
-              <img src={logo.url} alt="SOS CHEF Accrédité" className="brand-logo-surface h-32 w-32 object-contain" />
+              <img src={`https://orienta-pro-elevate.lovable.app${logo.url}`} alt="SOS CHEF Accrédité" className="brand-logo-surface h-32 w-32 object-contain" />
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               {t('diplomas.title')}
